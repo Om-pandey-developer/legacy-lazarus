@@ -40,7 +40,7 @@ graph TD
     
     style E fill:#4285F4,stroke:#333,stroke-width:2px,color:white
     style H fill:#EA4335,stroke:#333,stroke-width:2px,color:white
-    style I fill:#34A853,stroke:#333,stroke-width:2px,color:white
+    style I fill:#34A853,stroke:#333,stroke-width:2px,color:white```
 
 🚀 Key Features
 1. 🛡️ Behavioral Truth Tables
