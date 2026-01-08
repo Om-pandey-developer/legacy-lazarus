@@ -41,6 +41,7 @@ graph TD
     style E fill:#4285F4,stroke:#333,stroke-width:2px,color:white
     style H fill:#EA4335,stroke:#333,stroke-width:2px,color:white
     style I fill:#34A853,stroke:#333,stroke-width:2px,color:white
+
     🚀 Key Features
 1. 🛡️ Behavioral Truth Tables
 Instead of guessing, the agent runs the legacy code in a secure sandbox with various input vectors (edge cases, typical values) to record exactly how it behaves.
@@ -69,15 +70,12 @@ Security: python-dotenv for secure key management
 💿 Installation & Setup
 Prerequisites
 Node.js & npm
-
 Python 3.9+
-
 Google Gemini API Key
-
 1. Clone the Repository
 Bash
 
-git clone [https://github.com/YOUR_USERNAME/legacy-lazarus.git](https://github.com/YOUR_USERNAME/legacy-lazarus.git)
+git clone https://github.com/YOUR_USERNAME/legacy-lazarus.git
 cd legacy-lazarus
 2. Backend Setup
 Bash
