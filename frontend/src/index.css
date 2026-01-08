@@ -1,0 +1,29 @@
+/* RESET DEFAULTS */
+:root {
+  font-family: monospace;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: dark; /* Forces scrollbars to be dark */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #0d1117; /* Matches your App.jsx background */
+}
+
+/* Custom scrollbar for that "Cyberpunk/Terminal" feel */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0d1117; 
+}
+::-webkit-scrollbar-thumb {
+  background: #30363d; 
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #58a6ff; 
+}

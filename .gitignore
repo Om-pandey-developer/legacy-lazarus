@@ -1,0 +1,26 @@
+# --- FRONTEND (Node/React) ---
+node_modules/
+dist/
+dist-ssr/
+*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# --- BACKEND (Python) ---
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+instance/
+.pytest_cache/
+
+# --- SECURITY & OS ---
+.env
+.DS_Store
+.vscode/
+.idea/
+logs/
+*.log

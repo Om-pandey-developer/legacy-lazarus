@@ -1,0 +1,211 @@
+/* --- LAYOUT & CONTAINERS --- */
+.app-container {
+  padding: 2rem;
+  min-height: 100vh;
+  background-color: #0d1117;
+  color: #c9d1d9;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Split screen */
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* --- TYPOGRAPHY --- */
+h1 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: -1px;
+}
+
+h1 .tagline {
+  font-size: 0.5em;
+  color: #58a6ff;
+  margin-left: 10px;
+  vertical-align: middle;
+  opacity: 0.8;
+}
+
+h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: #8b949e;
+  letter-spacing: 1px;
+}
+
+/* --- COMPONENT: THE ACTIVATE BUTTON --- */
+.activate-btn {
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: inherit;
+  background: #238636;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 10px rgba(35, 134, 54, 0.2);
+}
+
+.activate-btn:hover:not(:disabled) {
+  background: #2ea043;
+  box-shadow: 0 0 20px rgba(46, 160, 67, 0.6); /* Glow effect */
+  transform: translateY(-1px);
+}
+
+.activate-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.activate-btn:disabled {
+  background: #21262d;
+  color: #8b949e;
+  cursor: not-allowed;
+  border-color: #30363d;
+}
+
+/* --- COMPONENT: CODE EDITORS --- */
+.code-box {
+  width: 100%;
+  height: 350px;
+  background: #161b22; /* Darker box */
+  color: #e6edf3;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 1rem;
+  font-family: inherit;
+  font-size: 0.85rem;
+  resize: none;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.code-box.legacy {
+  color: #ff7b72; /* Red tint for old code */
+}
+
+.code-box.modern {
+  color: #7ee787; /* Green tint for new code */
+}
+
+.code-box:focus {
+  border-color: #58a6ff; /* Blue border on focus */
+}
+
+/* --- COMPONENT: LOG TERMINAL --- */
+.terminal-window {
+  background: #010409;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  height: 250px;
+  padding: 1rem;
+  overflow-y: auto;
+  font-size: 0.8rem;
+  margin-bottom: 2rem;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+
+.log-entry {
+  margin-bottom: 4px;
+  border-left: 2px solid #58a6ff;
+  padding-left: 8px;
+  animation: fadeIn 0.3s ease-in;
+}
+
+/* --- COMPONENT: RESULTS TABLE --- */
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.results-table th {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #30363d;
+  color: #8b949e;
+}
+
+.results-table td {
+  padding: 8px;
+  border-bottom: 1px solid #21262d;
+}
+
+.results-table tr:hover {
+  background: rgba(255,255,255,0.02);
+}
+
+.status-pass {
+  color: #7ee787;
+  font-weight: bold;
+}
+
+.status-fail {
+  color: #ff7b72;
+  font-weight: bold;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(-5px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+/* Add to existing App.css */
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.metrics-panel {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #161b22;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid #30363d;
+}
+
+.metric-card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.metric-card span {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #8b949e;
+}
+
+.metric-card strong {
+  font-size: 1.5rem;
+}
+
+.metric-card.bad strong { color: #ff7b72; } /* Red */
+.metric-card.good strong { color: #7ee787; } /* Green */
+
+.metric-arrow { font-size: 1.5rem; color: #58a6ff; }
+
+.metric-badge {
+  background: #1f6feb;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
