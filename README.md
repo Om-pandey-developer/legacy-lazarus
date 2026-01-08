@@ -13,11 +13,7 @@ The world's critical infrastructure runs on "Black Box" legacy code. Migrating i
 **Legacy Lazarus** is an autonomous agent that solves this by **validating behavior, not just syntax.** It uses a **Self-Healing Loop** to ensure the modern code produces identical outputs to the legacy code, mathematically guaranteeing 100% parity.
 
 ---
-
-## 🧠 System Architecture
-
-Legacy Lazarus treats legacy migration as a **scientific experiment**: observe the old, hypothesize the new, test, and correct.
-🚀 Key Features
+ ## 🚀 Key Features
 1. 🛡️ Behavioral Truth Tables
 Instead of guessing, the agent runs the legacy code in a secure sandbox with various input vectors (edge cases, typical values) to record exactly how it behaves.
 
@@ -53,7 +49,7 @@ Google Gemini API Key
 1. Clone the Repository
 Bash
 
-git clone [https://github.com/YOUR_USERNAME/legacy-lazarus.git](https://github.com/YOUR_USERNAME/legacy-lazarus.git)
+git clone https://github.com/YOUR_USERNAME/legacy-lazarus.git
 cd legacy-lazarus
 2. Backend Setup
 Bash
@@ -105,7 +101,11 @@ This project was built for the Google Gemini "Action Era" Hackathon.
 Most AI coding tools are "Assists"—they help you type. Legacy Lazarus is an Agent—it does the job for you. By combining Gemini's reasoning capabilities with a robust execution feedback loop, we bridge the gap between "Generative Text" and "Reliable Engineering."
 
 📜 License
-Distributed under the MIT License. See LICENSE for more information.
+Distributed under the MIT License. See LICENSE for more information.   
+
+## 🧠 System Architecture
+
+Legacy Lazarus treats legacy migration as a **scientific experiment**: observe the old, hypothesize the new, test, and correct.
 
 ```mermaid
 graph TD
@@ -129,4 +129,4 @@ graph TD
     
     style E fill:#4285F4,stroke:#333,stroke-width:2px,color:white
     style H fill:#EA4335,stroke:#333,stroke-width:2px,color:white
-    style I fill:#34A853,stroke:#333,stroke-width:2px,color:white
+    style I fill:#34A853,stroke:#333,stroke-width:2px,color:white ```
