@@ -15,7 +15,7 @@ function App() {
     setLogs([]);
     setTestResults([]);
     setMetrics(null);
-    setLegacyCode(""); // Clear code to build suspense
+    setLegacyCode(""); 
     setModernCode(""); 
     
     // Initial "Boot up" sequence
@@ -25,7 +25,7 @@ function App() {
     await delay(800);
 
     try {
-      // 1. CALL BACKEND (It happens fast in background)
+      // 1. CALL BACKEND 
       const res = await fetch("http://127.0.0.1:8000/analyze-and-refactor", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -38,18 +38,17 @@ function App() {
       setLogs(prev => [...prev, "> Legacy Code Ingested."]);
       await delay(1000);
 
-      // 3. CINEMATIC LOG REVEAL (The "Live" Effect)
-      // We loop through the backend logs and show them one by one
+      
       for (const logLine of data.logs) {
         setLogs(prev => [...prev, logLine]);
         
-        // If it's a failure line, wait longer to let the user read it
+        
         if (logLine.includes("FAILURE")) {
-            await delay(2000); // 2 second pause on failure
+            await delay(2000); 
         } else if (logLine.includes("Attempt")) {
-            await delay(1000); // 1 second pause on new attempt
+            await delay(1000); 
         } else {
-            await delay(500);  // 0.5 second for normal lines
+            await delay(500); 
         }
       }
 
@@ -63,7 +62,7 @@ function App() {
       const verRes = await fetch("http://127.0.0.1:8000/mirror-test");
       const verData = await verRes.json();
       
-      setTestResults(verData.results); // Show the table at the very end
+      setTestResults(verData.results); 
 
     } catch (e) {
       setLogs(prev => [...prev, "Critical Error: Backend unreachable."]);
@@ -82,7 +81,7 @@ function App() {
           {loading ? "EXECUTING REFACTORING LOOP..." : "ACTIVATE LAZARUS AGENT"}
         </button>
         
-        {/* NEW: METRICS DASHBOARD */}
+        {/*  METRICS DASHBOARD */}
         {metrics && (
           <div className="metrics-panel">
             <div className="metric-card bad">

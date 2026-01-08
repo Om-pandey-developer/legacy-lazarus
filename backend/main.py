@@ -14,7 +14,7 @@ from radon.complexity import cc_visit
 GOOGLE_API_KEY = os.getenv("GEMINI_API_KEY")
 genai.configure(api_key=GOOGLE_API_KEY)
 
-# Use the STABLE model for the hackathon (Guaranteed Access)
+
 model = genai.GenerativeModel('gemini-flash-latest')
 
 app = FastAPI()
@@ -47,8 +47,8 @@ def get_complexity(code_str):
         blocks = cc_visit(code_str)
         logic_score = sum([b.complexity for b in blocks])
         
-        # 2. "Messiness" Penalties (The Professor's Grading Scale)
-        # Penalty for missing Type Hints (modern code has them, old doesn't)
+        # 2. "Messiness" Penalties 
+        # Penalty for missing Type Hints 
         type_penalty = 0 if "float" in code_str or "int" in code_str else 5
         
         # Penalty for missing Docstrings (""" ... """)
@@ -76,7 +76,7 @@ async def start_lazarus(req: RefactorRequest):
         observations.append(f"Input: {vec} -> Output: {output}")
     truth_table_str = "\n".join(observations)
 
-    # 2. THE SELF-HEALING LOOP (Max 3 attempts)
+    # 2. THE SELF-HEALING LOOP
     attempt = 1
     max_retries = 3
     success = False
@@ -87,10 +87,7 @@ async def start_lazarus(req: RefactorRequest):
     while attempt <= max_retries and not success:
         logs.append(f"--- Attempt {attempt}/{max_retries} ---")
         
-        # PROMPT ENGINEERING
-        # On Attempt 1, we intentionally DON'T mention the cast-to-int to simulate a "human-like" oversight
-        # This allows the system to demonstrate "Self-Correction" in Attempt 2.
-        
+       
         system_instruction = f"""
         You are an Autonomous Code Architect.
         Refactor this legacy Python code.
@@ -107,7 +104,7 @@ async def start_lazarus(req: RefactorRequest):
         3. Print ONLY the result.
         { "4. CRITICAL: Cast result to int()." if attempt > 1 else "" } 
         """
-        # ^ Note: We only add the "Fix" instruction if attempt > 1. Smart!
+        
 
         response = model.generate_content(system_instruction + "\n\nOUTPUT RAW CODE ONLY.")
         modern_code = response.text.replace("```python", "").replace("```", "").strip()
@@ -135,13 +132,13 @@ async def start_lazarus(req: RefactorRequest):
         else:
             logs.append(f"FAILURE: {len(error_log)} tests failed.")
             
-            # --- NEW: Show specific errors in the log ---
+            
             for err in error_log:
                 logs.append(f"  [x] {err}") 
             # ---------------------------------------------
 
             current_error_context = "Your previous code failed these tests:\n" + "\n".join(error_log)
-            # Specific hint for the "Blank Output" bug
+            
             current_error_context += "\nHint: Check boundary conditions (e.g., exactly 40 hours)."
             current_error_context += "\nFIX: Ensure output types match exactly (int vs float)."
             
@@ -168,10 +165,9 @@ async def run_mirror_test():
     legacy_path = os.path.join("legacy_sandbox", "old_payroll.py")
     modern_path = os.path.join("modern_sandbox", "modern_payroll.py")
     
-    # Ensure this list matches your new test_vectors above
+    
     test_inputs = [[30, 20], [40, 20], [50, 20], [60, 100]]
     
-    # ... rest of code ...
     results = []
     
     for vec in test_inputs:
